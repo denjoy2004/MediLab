@@ -1,0 +1,55 @@
+{% extends 'base_login.html' %}
+
+{% block content %}
+
+
+{% if error %}
+<br><br><br><br>
+<div class="container">
+    <div class="alert alert-info text-center" role="alert">
+        {{ error }}
+    </div>
+</div>
+{% endif %}
+
+<div class="container">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+
+            <form action="{% url 'signup' %}" method="POST" class="login100-form validate-form">
+                {% csrf_token %}
+                <span class="login100-form-title p-b-33">
+                    Create Account
+                </span>
+                <div class="wrap-input100 validate-input" data-validate="Valid Name is required">
+                    <input class="input100" type="text" name="uname" placeholder="Username">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+                <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                    <input class="input100" type="password" name="pass1" placeholder="Password">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+                <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                    <input class="input100" type="password" name="pass2" placeholder="Confirm Password">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+
+                <div class="container-login100-form-btn m-t-20">
+                    <button class="login100-form-btn" type="submit">
+                        Create account
+                    </button>
+                </div>
+                <div class="text-center">
+                    <br>
+                    <a href="{% url 'login' %}" class="txt2 hov1">
+                        Sign In
+                    </a>
+                </div>
+            </form>
+
+        </div>
+
+        {% endblock %}

@@ -1,0 +1,51 @@
+{% extends "inbase.html" %}
+
+{% block content %}
+<br><br><br><br><br><br><br><br>
+<div class="container mt-5" >
+    <h2 class="text-center" style="color: white;">My Test Requests</h2><br><br>
+    
+    {% if test_requests %}
+        <table class="table table-striped mt-4  table-hover" style="background-color: azure; font-family: 'Montserrat', serif !important; border-radius: 15px; padding: 15px !important;">
+            <thead style="border-radius: 15px; padding: 15px !important;">
+                <tr style="border-radius: 15px; padding: 15px !important;">
+                    <th style="color: black;">Test Name</th>
+                    <th style="color: black;">Status</th>
+                    <th style="color: black;">Requested On</th>
+                    <th style="color: black;">Requested For</th>
+                    <th style="color: black;">Result</th>
+                </tr>
+            </thead>
+            <tbody style="border-radius: 15px; padding: 15px !important;">
+                {% for request in test_requests %}
+                    <tr style="border-radius: 15px; padding: 15px !important;">
+                        <td><h4 style="font-family: 'Montserrat', serif !important;">{{ request.test.name }}</h4></td>
+                        <td>
+                            {% if request.status == "Pending" %}
+                                <h4  style="font-family: 'Montserrat', serif !important;"><span class="label label-default">Pending</span></h4>
+                            {% elif request.status == "Completed" %}
+                            <h4 style="font-family: 'Montserrat', serif !important;"><span class="label label-success">Completed</span></h4>
+                            {% elif request.status == "In Progress" %}
+                            <h4 style="font-family: 'Montserrat', serif !important;"><span class="label label-warning" style="color: black;">In Progress</span></h4>
+                            {% else %}
+                            <h4 style="font-family: 'Montserrat', serif !important;"><span class="label label-danger">{{ request.status }}</span></h4>
+                            {% endif %}
+                        </td>
+                        <td><h4 style="font-family: 'Montserrat', serif !important;">{{ request.created_at|date:"F d, Y H:i A" }}</h4></td>
+                        <td><h4 style="font-family: 'Montserrat', serif !important;">{{ request.request_date|date:"F d, Y H:i A" }}</h4></td>
+                        <td><h4 style="font-family: 'Montserrat', serif !important;">
+                            {% if request.result %}
+                                <a href="{% url 'download_result' request.id %}" class="btn btn-primary" download style="font-family: 'Montserrat', serif !important;">Download PDF</a>
+                            {% else %}
+                                No Result Available
+                            {% endif %}</h4>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <h4 class="text-center mt-4" style="font-family: 'Montserrat', serif !important;">No test requests found.</h4>
+    {% endif %}
+</div>
+{% endblock %}

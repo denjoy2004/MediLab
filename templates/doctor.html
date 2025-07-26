@@ -1,0 +1,60 @@
+{% extends "inbase.html" %}
+
+{% block content %}
+
+<br><br><br><br>
+<div class="container">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+            <form class="login100-form validate-form inline-form" action="" method="GET">
+                {% csrf_token %}
+                <span class="login100-form-title p-b-33">
+                    Search Doctor Details
+                </span>
+                <div class="sansserif">
+                    <div class="wrap-input100 validate-input" data-validate="Valid Name is required">
+                        <input class="input100" type="text" name="name" placeholder="Name">
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid Specialization is required">
+                        <input class="input100" type="text" name="category" placeholder="Specialization">
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn m-t-20">
+                        <button class="login100-form-btn" type="submit">
+                            Search Doctor
+                        </button>
+                    </div>
+                    {% for q in query %}
+                    
+                    <div class="card" style="padding:15px; border: 1px solid rgb(143, 143, 143); border-radius: 10px; margin: 15px 0px ; align-items: center; justify-content: center;">
+                        
+                        <div class="card-body">
+                            <div class="form-group" style="width: 100%; border:1px solid rgb(202, 202, 202); padding: 10px; border-radius: 10px;font-family: Montserrat, serif;">
+                                <label for="fninpro">Doctor Name</label>
+                                <h4 id="fninpro" style="font-size: 18px;font-family: Montserrat, serif;"   >{{ q.name }}</h4>
+                            </div>
+
+                            <div style="display: flex; justify-content: space-between; column-gap: 5px; font-family: Montserrat, serif;">
+                                <div class="form-group" style="width: 50%; border:1px solid rgb(202, 202, 202); padding: 10px; border-radius: 10px;font-family: Montserrat, serif;">
+                                    <label for="fninpro">Specialization</label>
+                                    <h4 id="fninpro" style="font-size: 18px;font-family: Montserrat, serif;"   >{{ q.category }}</h4>
+                                </div>
+                                <div class="form-group" style="width: 50%; border:1px solid rgb(202, 202, 202); padding: 10px; border-radius: 10px;font-family: Montserrat, serif;">
+                                    <label for="fninpro">Contact</label>
+                                    <h4 id="fninpro" style="font-size: 18px;font-family: Montserrat, serif;"   >{{ q.contact }}</h4>
+                                </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    
+                    {% endfor %}
+                </div>
+            </form>
+        </div>
+        {% endblock %}

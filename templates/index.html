@@ -1,0 +1,78 @@
+{% extends 'inbase.html' %}
+{% load static %}
+
+{% block content %}
+<br><br><br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <a href="{% url 'see_profile' %}">
+          <center>
+            <div class="panel-body"><img src="{% static 'img/profile.png' %}" class="img-responsive" style="width:40%"
+                height="40%" alt="Image"></div>
+          </center>
+          <div class="panel-footer">
+            <center>
+              <h3 style="color:black;">Profile</h3>
+            </center>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <a href="{% url 'check_disease' %}">
+          <center>
+            <div class="panel-body"><img src="{% static 'img/health.png' %}" class="img-responsive" style="width:40%"
+                height="40%" alt="Image"></div>
+          </center>
+          <div class="panel-footer">
+            <center>
+              <h3 style="color:black;">AI Based Symptom Diagnosis</h3>
+            </center>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <a href="{% url 'doctor' %}">
+          <center>
+            <div class="panel-body"><img src="{% static 'img/search.jfif' %}" class="img-responsive" style="width:40%"
+                height="40%" alt="Image"></div>
+          </center>
+          <div class="panel-footer">
+            <center>
+              <h3 style="color:black;">Find Your Doctor</h3>
+            </center>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <a href="{% url 'feedback' %}">
+          <center>
+            <div class="panel-body"><img src="{% static 'img/feed.jfif' %}" class="img-responsive" style="width:40%"
+                height="40%" alt="Image"></div>
+          </center>
+          <div class="panel-footer">
+            <center>
+              <h3 style="color:black;">Feedback</h3>
+            </center>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "inbase.html" %}
+
+{% block content %}
+
+<br><br><br><br>
+<div class="container">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+            <form class="login100-form validate-form inline-form" action="{% url 'submit_test_request' %}" method="POST">
+                {% csrf_token %}
+                <span class="login100-form-title p-b-33">
+                    Request a Medical Test
+                </span>
+
+                <div class="sansserif">
+                    <!-- Test Selection Dropdown -->
+                    <div class="wrap-input100 validate-input">
+                        <select class="form-control" name="test" id="test-dropdown" required>
+                            <option value="" disabled selected>Select a Test</option>
+                            {% for test in tests %}
+                                <option value="{{ test.id }}" 
+                                        data-cost="{{ test.price }}" 
+                                        data-sample="{{ test.sample_required }}" 
+                                        data-description="{{ test.description }}">
+                                    {{ test.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+
+                    <!-- Test Details (Updated Dynamically) -->
+                    <div id="test-details" style="display: none; margin-top: 20px;">
+                        <h3><u>Test Details</u></h3>
+                        <p class="h4" style="color: black;"><strong>Sample Type:</strong> <span id="sample-type" ></span></p>
+                        <p class="h4" style="color: black;"><strong>Cost:</strong> ₹<span id="test-cost"></span></p>
+                        <p class="h4" style="color: black;"><strong>Description:</strong><br> <span id="test-description"></span></p>
+                    </div>
+
+                    <!-- Request Date and Time -->
+                    <div class=" validate-input ">
+                        <div class="form-group m-t-20">
+                        <label for="request_date" style="color: black;">Select Date & Time:</label>
+                        <input type="datetime-local" name="request_date" id="request_date" class="form-control" required>
+                    </div>
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="container-login100-form-btn m-t-20">
+                        <button class="login100-form-btn" type="submit">
+                            Request Test
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('test-dropdown').addEventListener('change', function() {
+        let selectedOption = this.options[this.selectedIndex];
+        let sampleType = selectedOption.getAttribute('data-sample');
+        let cost = selectedOption.getAttribute('data-cost');
+        let description = selectedOption.getAttribute('data-description');
+
+        document.getElementById('sample-type').textContent = sampleType;
+        document.getElementById('test-cost').textContent = cost;
+        document.getElementById('test-description').textContent = description;
+
+        document.getElementById('test-details').style.display = 'block';
+    });
+</script>
+
+{% endblock %}

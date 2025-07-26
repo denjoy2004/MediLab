@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% load static  %}
+
+{% block content %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="banner-info">
+      <div class="banner-logo text-center">
+        <img src="{% static 'img/logo.png' %}" class="img-responsive">
+      </div>
+      <div class="banner-text text-center">
+        <h1 class="white">Healthcare at your home!!</h1>
+
+        <a href="/admin/" class="btn btn-appoint">Get Started As Admin.</a>
+        <a href="{% url 'login' %}" class="btn btn-appoint">Get Started As Patient.</a>
+      </div>
+      <div class="overlay-detail text-center">
+        <a href="#service"><i class="fa fa-angle-down"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!--/ banner-->
+<!--service-->
+<section id="service" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4">
+        <h2 class="ser-title">Our Service</h2>
+        <hr class="botm-line">
+
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="service-info">
+          <div class="icon">
+            <i class="fa fa-stethoscope"></i>
+          </div>
+          <div class="icon-info">
+            <h4>24 Hour Support</h4>
+            <p>Our services are available to each patient at all times. Just at a click you will find the best services.
+            </p><br>
+          </div>
+        </div>
+        <div class="service-info">
+          <div class="icon">
+            <i class="fa fa-ambulance"></i>
+          </div>
+          <div class="icon-info">
+            <h4>Emergency Services</h4>
+            <p>Incase of any emergency when doctors are not readily available, our website will provide you with the
+              necessary details to contact available doctors.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="service-info">
+          <div class="icon">
+            <i class="fa fa-user-md"></i>
+          </div>
+          <div class="icon-info">
+            <h4>Medical Counseling</h4>
+            <p>On our website, the information related to the symptoms you search, is authentic. It is fed into the
+              system with the help of practicing doctors.</p>
+          </div>
+        </div>
+        <div class="service-info">
+          <div class="icon">
+            <i class="fa fa-medkit"></i>
+          </div>
+          <div class="icon-info">
+            <h4>Premium Healthcare</h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ service-->
+<!--cta-->
+
+
+<!--testimonial-->
+<section id="testimonial" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="ser-title">see what patients are saying?</h2>
+        <hr class="botm-line">
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="testi-details">
+          <!-- Paragraph -->
+          <p>The website was very beneficial to me. It helped alot without me having to actually go and visit a doctor. </p>
+        </div>
+        <div class="testi-info">
+          <!-- User Image -->
+          <a href="#"><img src="{% static 'img/thumb.png' %}" alt="" class="img-responsive"></a>
+          <!-- User Name -->
+          <h3>Alex<span>Texas</span></h3>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="testi-details">
+          <!-- Paragraph -->
+          <p>This website is definitely ahead of it's times. Not just the look and feel but also the services provided are well defined. </p>
+        </div>
+        <div class="testi-info">
+          <!-- User Image -->
+          <a href="#"><img src="{% static 'img/thumb.png' %}" alt="" class="img-responsive"></a>
+          <!-- User Name -->
+          <h3>Williams<span>Gill</span></h3>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="testi-details">
+          <!-- Paragraph -->
+          <p>The symptom checker is very intricate and broadly classified. Also, it gives the details of relevant doctors which is definitely an add on!</p>
+        </div>
+        <div class="testi-info">
+          <!-- User Image -->
+          <a href="#"><img src="{% static 'img/thumb.png' %}" alt="" class="img-responsive"></a>
+          <!-- User Name -->
+          <h3>John<span>Doe</span></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ testimonial-->
+<!--cta 2-->
+<section id="cta-2" class="section-padding">
+  <div class="container">
+    <div class=" row">
+      <div class="col-md-2"></div>
+      <div class="text-right-md col-md-4 col-sm-4">
+        <h2 class="section-title white lg-line">« A few words<br> about us »</h2>
+      </div>
+      <div class="col-md-4 col-sm-5">
+        <p></p>
+        <p class="text-right text-primary"><i>— Medilab+ Healthcare</i></p>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</section>
+<!--cta-->
+<!--contact-->
+<section id="contact" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="ser-title">Contact us</h2>
+        <hr class="botm-line">
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <h3>Contact Info</h3>
+
+        <div class="space"></div>
+        <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>medilab2336@gmail.com</p>
+        
+      </div>
+      <div class="col-md-8 col-sm-8 marb20">
+        <div class="contact-info">
+          <h3 class="cnt-ttl">Having Any Query!</h3>
+          <div class="space"></div>
+          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Your Name"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Your Email"
+                data-rule="email" data-msg="Please enter a valid email" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Subject"
+                data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required"
+                data-msg="Please write something for us" placeholder="Message"></textarea>
+              <div class="validation"></div>
+            </div>
+
+            <div class="form-action">
+              <button type="submit" class="btn btn-form">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ contact-->
+
+
+{% endblock %}

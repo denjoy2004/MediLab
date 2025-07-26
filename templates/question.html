@@ -1,0 +1,67 @@
+{% extends "base_profile.html" %}
+
+{% block content %}
+
+<br><br><br><br>
+
+<div class="container">
+	<div class="container-login100">
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+			<form class="login100-form validate-form" action="{% url 'question' %}" method="POST">
+				{% csrf_token %}
+				<h4 class="text-black text-center">Hi {{ person.fname }} {{ person.lname }}</h4><br>
+				<span class="login100-form-title p-b-33">
+					Health Background
+				</span>
+				<div class="sansserif">
+					{% if gender %}
+					<label style="color:black;">Are you pregnant?</label><br>
+					<input type="radio" name="pregnant" value="yes">&nbsp;<label style="color:black;">Yes</label><br>
+					<input type="radio" name="pregnant" value="no">&nbsp;<label style="color:black;">No</label><br>
+					<input type="radio" name="pregnant" value="dont know">&nbsp;<label style="color:black;">Don't
+						Know</label><br>
+					<br>
+					{% else %}
+					<input type="hidden" name="pregnant" value="no">
+					{% endif %}
+					<label style="color:black;">Are you overweight or an obese?</label><br>
+					<input type="radio" name="weight" value="yes">&nbsp;<label style="color:black;">Yes</label><br>
+					<input type="radio" name="weight" value="no">&nbsp;<label style="color:black;">No</label><br>
+					<input type="radio" name="weight" value="dont know">&nbsp;<label style="color:black;">Don't
+						Know</label><br>
+					<br>
+					<label style="color:black;">Do you smoke cigarettes?</label><br>
+					<input type="radio" name="cig" value="yes">&nbsp;<label style="color:black;">Yes</label><br>
+					<input type="radio" name="cig" value="no">&nbsp;<label style="color:black;">No</label><br>
+					<input type="radio" name="cig" value="dont know">&nbsp;<label style="color:black;">Don't
+						Know</label><br>
+					<br>
+					<label style="color:black;">Have you been recently injured?</label><br>
+					<input type="radio" name="inj" value="yes">&nbsp;<label style="color:black;">Yes</label><br>
+					<input type="radio" name="inj" value="no">&nbsp;<label style="color:black;">No</label><br>
+					<input type="radio" name="inj" value="dont know">&nbsp;<label style="color:black;">Don't
+						Know</label><br>
+					<br>
+					<label style="color:black;">Do you have high cholestrol?</label><br>
+					<input type="radio" name="ch" value="yes">&nbsp;<label style="color:black;">Yes</label><br>
+					<input type="radio" name="ch" value="no">&nbsp;<label style="color:black;">No</label><br>
+					<input type="radio" name="ch" value="dont know">&nbsp;<label style="color:black;">Don't
+						Know</label><br>
+					<br>
+					<label style="color:black;">Are you suffering from hypertension?</label><br>
+					<input type="radio" name="hyp" value="yes">&nbsp;<label style="color:black;">Yes</label><br>
+					<input type="radio" name="hyp" value="no">&nbsp;<label style="color:black;">No</label><br>
+					<input type="radio" name="hyp" value="dont know">&nbsp;<label style="color:black;">Don't
+						Know</label><br>
+
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn" type="submit">
+							Add details
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+
+		{% endblock %}

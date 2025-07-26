@@ -1,0 +1,92 @@
+{% extends "base_profile.html" %}
+
+{% block content %}
+
+<br><br><br><br>
+<div class="container">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+            <form action="{% url 'add_profile' %}" class="login100-form validate-form" method="POST">
+                {% csrf_token %}
+                <span class="login100-form-title p-b-33">
+                    Profile
+                </span>
+                <div class="wrap-input100 validate-input" data-validate="Valid First Name is required">
+                    <input class="input100" type="text" name="fname" placeholder="First Name">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Valid Last Name is required">
+                    <input class="input100" type="text" name="lname" placeholder="Last Name">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Valid Age is required">
+                    <input class="input100" type="text" name="age" placeholder="Age">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Valid Contact Number is required">
+                    <input class="input100" type="text" name="contact" placeholder="Contact Number">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+
+                <div class="wrap-input100 ">
+                    <div class="input100">
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gender <br><br>
+                        <div class="input100">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Male
+                            <input type="radio" checked="checked" name="gender" value="male">
+                            <span class="checkmark"></span>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Female
+                            <input type="radio" name="gender" value="female">
+                            <span class="checkmark"></span>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Others
+                            <input type="radio" name="gender" value="others">
+                            <span class="checkmark"></span>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Valid Email is required">
+                    <input class="input100" type="email" name="email" placeholder="email">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Valid Street is required">
+                    <input class="input100" type="text" name="street" placeholder="street">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Valid City is required">
+                    <input class="input100" type="text" name="city" placeholder="City">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Valid State is required">
+                    <input class="input100" type="text" name="state" placeholder="state">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Valid Pincode is required">
+                    <input class="input100" type="text" name="pin" pattern="[0-9]{6}" placeholder="Pincode">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+
+
+                <div class="container-login100-form-btn m-t-20">
+                    <button class="login100-form-btn" type="submit">
+                        Submit
+                    </button>
+                </div>
+                <div class="text-center">
+                    <br>
+                </div>
+            </form>
+        </div>
+        {% endblock %}

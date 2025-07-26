@@ -1,0 +1,33 @@
+{% extends "inbase.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+
+            <form action="{% url 'feedback' %}" method="POST" class="login100-form validate-form">
+                {% csrf_token %}
+                <span class="login100-form-title p-b-33">
+                    Any Feedback For Us!
+                </span>
+                <div class="sansserif">
+                    <div class="wrap-input100 validate-input" data-validate="Valid username is required">
+                        <textarea class="input100" rows="4" cols="30" name="feed"
+                            placeholder="Enter text here....."> </textarea>
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn m-t-20">
+                        <button class="login100-form-btn" type="submit">
+                            Submit Feedback
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        {% endblock %}
